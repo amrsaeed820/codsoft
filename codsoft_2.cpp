@@ -6,32 +6,40 @@ using namespace std;
 
 int main()
 {
-    srand(time(0));
-    int randomNumber = rand() % 100 + 1;
-    int guess, attempts = 0;
-    cout << "Welcome to the Number Guessing Game \n";
-    cout << "I have picked a number between 1 and 100. Can you guess it?\n";
-
-    do
+    bool flag = 1;
+    while (flag)
     {
-        cout << "Enter your guess: ";
-        cin >> guess;
-        attempts++;
+        srand(time(0));
+        int randomNumber = rand() % 100 + 1;
+        int guess, attempts = 0;
+        cout << "Welcome to the Number Guessing Game \n";
+        cout << "I have picked a number between 1 and 100. Can you guess it?\n";
 
-        if (guess > randomNumber)
+        do
         {
-            cout << "Too high! Try again\n";
-        }
-        else if (guess < randomNumber)
-        {
-            cout << "Too low! Try again\n";
-        }
-        else
-        {
-            cout << "Congratulations You've guessed the number in " << attempts << " attempts\n";
-        }
+            cout << "Enter your guess: ";
+            cin >> guess;
+            attempts++;
 
-    } while (guess != randomNumber);
+            if (guess > randomNumber)
+            {
+                cout << "Too high! Try again\n";
+            }
+            else if (guess < randomNumber)
+            {
+                cout << "Too low! Try again\n";
+            }
+            else
+            {
+                cout << "******************************\n";
+                cout << "Congratulations You've guessed the number in " << attempts << " attempts\n";
+            }
 
+        } while (guess != randomNumber);
+
+        cout << " do you want play again ? \n please click 0 or 1 \n 0. Exit   1. play again \n";
+        cin >> flag;
+    }
+    cout << "thank you for playing the Number Guessing Game \n";
     return 0;
 }
